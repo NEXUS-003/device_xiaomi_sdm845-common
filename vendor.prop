@@ -108,6 +108,12 @@ drm.service.enabled=true
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# Graphics
+debug.egl.hw=1
+debug.sf.hw=1
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
