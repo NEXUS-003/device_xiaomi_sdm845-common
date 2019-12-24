@@ -89,6 +89,9 @@ vendor.qcom.bluetooth.soc=cherokee
 # Ccodec
 debug.stagefright.omx_default_rank=0
 
+# Display
+vendor.display.qdcm.mode_combine=1
+
 # Display post-processing
 ro.vendor.display.cabl=2
 
