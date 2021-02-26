@@ -265,6 +265,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
+# iorap
+PRODUCT_PACKAGES += iorap-nall
+
 # IPA
 PRODUCT_PACKAGES += \
     ipacm \
