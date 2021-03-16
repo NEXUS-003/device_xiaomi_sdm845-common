@@ -58,3 +58,6 @@ fi
 if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
     echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
 fi
+
+# Enable faster charging
+echo 3300000 > /sys/class/power_supply/battery/constant_charge_current_max
