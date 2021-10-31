@@ -352,6 +352,9 @@ vendor/lib64/hw/vulkan.adreno.so|7fe53628fbaf5a4c866fd82c6254021d670c7d83
 
 # IMS - from LA.QSSI.11.0.r1-12100-qssi.0
 
+# IMS - from alioth - 12/SKQ1.210908.001/21.10.12
+system_ext/lib64/lib-imsvideocodec.so|b7001bb1008106ccb9ef92dd2560e2052b40c325
+
 # IMS - from pyxis - RKQ1.200826.002/21.3.31
 vendor/bin/ims_rtp_daemon|2c995a884bbde9f37a44a10ac8fb694b30af97ea
 vendor/bin/imsdatadaemon|eb09aed86816127ef752c07c027d3ede9000f549
