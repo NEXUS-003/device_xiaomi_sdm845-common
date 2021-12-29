@@ -30,7 +30,7 @@ namespace google {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace xiaomi {
+namespace pixel {
 
 using ::android::perfmgr::HintManager;
 
@@ -48,7 +48,7 @@ class PowerExt : public ::aidl::google::hardware::power::extension::pixel::BnPow
     std::shared_ptr<DisplayLowPower> mDisplayLowPower;
 };
 
-}  // namespace xiaomi
+}  // namespace pixel
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware

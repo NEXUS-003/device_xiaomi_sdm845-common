@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
 cc_library {
     name: "libdisppower-xiaomi-sdm845",
     proprietary: true,
@@ -29,42 +33,6 @@ cc_library {
     ],
 }
 
-cc_library_headers {
-    name: "xiaomi_power_headers",
-    vendor: true,
-    export_include_dirs: ["hidl"],
-}
-
-cc_binary {
-    name: "android.hardware.power@1.3-service.xiaomi-libperfmgr",
-    relative_install_path: "hw",
-    vintf_fragments: ["hidl/android.hardware.power@1.3-service.xiaomi.xml"],
-    init_rc: ["hidl/android.hardware.power@1.3-service.xiaomi-libperfmgr.rc"],
-    srcs: ["hidl/service.cpp", "hidl/Power.cpp"],
-    cflags: [
-        "-Wall",
-        "-Werror",
-    ],
-    shared_libs: [
-        "libbase",
-        "libhidlbase",
-        "liblog",
-        "libutils",
-        "libcutils",
-        "android.hardware.power@1.0",
-        "android.hardware.power@1.1",
-        "android.hardware.power@1.2",
-        "android.hardware.power@1.3",
-        "libdisppower-xiaomi-sdm845",
-        "libperfmgr",
-    ],
-	header_libs: [
-        "libhardware_headers",
-        "generated_kernel_headers",
-    ],
-    proprietary: true,
-}
-
 cc_binary {
     name: "android.hardware.power-service.xiaomi-sdm845-libperfmgr",
     relative_install_path: "hw",
@@ -72,7 +40,7 @@ cc_binary {
     vintf_fragments: ["aidl/android.hardware.power-service.xiaomi-sdm845.xml"],
     vendor: true,
     shared_libs: [
-        "android.hardware.power-ndk_platform",
+        "android.hardware.power-V2-ndk_platform",
         "libbase",
         "libcutils",
         "liblog",
@@ -80,15 +48,14 @@ cc_binary {
         "libbinder_ndk",
         "libdisppower-xiaomi-sdm845",
         "libperfmgr",
-        "pixel-power-ext-ndk_platform",
+        "libprocessgroup",
+        "pixel-power-ext-V1-ndk_platform",
     ],
     srcs: [
         "aidl/service.cpp",
         "aidl/Power.cpp",
         "aidl/PowerExt.cpp",
-    ],
-    header_libs: [
-        "libhardware_headers",
-        "generated_kernel_headers",
+        "aidl/PowerHintSession.cpp",
+        "aidl/PowerSessionManager.cpp",
     ],
 }

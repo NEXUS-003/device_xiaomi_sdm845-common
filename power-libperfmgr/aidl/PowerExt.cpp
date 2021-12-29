@@ -15,9 +15,10 @@
  */
 
 #define ATRACE_TAG (ATRACE_TAG_POWER | ATRACE_TAG_HAL)
-#define LOG_TAG "android.hardware.power-service.xiaomi-sdm845.ext-libperfmgr"
+#define LOG_TAG "android.hardware.power-service.pixel.ext-libperfmgr"
 
 #include "PowerExt.h"
+#include "PowerSessionManager.h"
 
 #include <mutex>
 
@@ -35,7 +36,7 @@ namespace google {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace xiaomi {
+namespace pixel {
 
 ndk::ScopedAStatus PowerExt::setMode(const std::string &mode, bool enabled) {
     LOG(DEBUG) << "PowerExt setMode: " << mode << " to: " << enabled;
@@ -46,6 +47,7 @@ ndk::ScopedAStatus PowerExt::setMode(const std::string &mode, bool enabled) {
     } else {
         mHintManager->EndHint(mode);
     }
+    PowerSessionManager::getInstance()->updateHintMode(mode, enabled);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -79,7 +81,7 @@ ndk::ScopedAStatus PowerExt::isBoostSupported(const std::string &boost, bool *_a
     return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace xiaomi
+}  // namespace pixel
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware

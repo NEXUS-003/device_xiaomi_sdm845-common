@@ -32,10 +32,10 @@ namespace google {
 namespace hardware {
 namespace power {
 namespace impl {
-namespace xiaomi {
+namespace pixel {
 
-using ::InteractionHandler;
 using ::aidl::android::hardware::power::Boost;
+using ::aidl::android::hardware::power::IPowerHintSession;
 using ::aidl::android::hardware::power::Mode;
 using ::android::perfmgr::HintManager;
 
@@ -46,6 +46,11 @@ class Power : public ::aidl::android::hardware::power::BnPower {
     ndk::ScopedAStatus isModeSupported(Mode type, bool *_aidl_return) override;
     ndk::ScopedAStatus setBoost(Boost type, int32_t durationMs) override;
     ndk::ScopedAStatus isBoostSupported(Boost type, bool *_aidl_return) override;
+    ndk::ScopedAStatus createHintSession(int32_t tgid, int32_t uid,
+                                         const std::vector<int32_t> &threadIds,
+                                         int64_t durationNanos,
+                                         std::shared_ptr<IPowerHintSession> *_aidl_return) override;
+    ndk::ScopedAStatus getHintSessionPreferredRate(int64_t *outNanoseconds) override;
     binder_status_t dump(int fd, const char **args, uint32_t numArgs) override;
 
   private:
@@ -53,13 +58,14 @@ class Power : public ::aidl::android::hardware::power::BnPower {
     std::shared_ptr<DisplayLowPower> mDisplayLowPower;
     std::unique_ptr<InteractionHandler> mInteractionHandler;
     std::atomic<bool> mSustainedPerfModeOn;
+    const int64_t mAdpfRateNs;
     int open_ts_input();
     void handle_dt2w(bool enabled);
     char mDt2wPath[PATH_MAX];
     std::atomic<bool> mPathCached;
 };
 
-}  // namespace xiaomi 
+}  // namespace pixel
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware
