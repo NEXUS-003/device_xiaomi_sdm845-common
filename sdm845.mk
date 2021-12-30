@@ -222,7 +222,11 @@ PRODUCT_PACKAGES += \
 
 
 # QTI Perf Component
-TARGET_COMMON_QTI_COMPONENTS := perf
+TARGET_COMMON_QTI_COMPONENTS := \
+    perf \
+    telephony \
+    usb
+
 
 # Freeform Multiwindow
 PRODUCT_COPY_FILES += \
