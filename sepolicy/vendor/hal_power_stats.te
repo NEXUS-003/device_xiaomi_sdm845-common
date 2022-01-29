@@ -1,0 +1,2 @@
+allow hal_power_stats_default sysfs_system_sleep_stats:file { read open getattr };
+allow hal_power_stats_default sysfs_rpm:file { read open };
