@@ -94,7 +94,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.2-service.xml \
     vendor.qti.hardware.servicetracker@1.2.vendor \
-    vendor.qti.hardware.servicetracker@1.1.vendor
+    vendor.qti.hardware.servicetracker@1.1.vendor \
+    android.hardware.sensors@1.0-service \
+    android.frameworks.sensorservice@1.0 \
+    android.frameworks.sensorservice@1.0.vendor
 
 # Audio
 PRODUCT_PACKAGES += \
